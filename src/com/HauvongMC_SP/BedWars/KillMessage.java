@@ -40,7 +40,6 @@ public class KillMessage implements Listener {
         lol.apply(event.getKiller());
         event.setMessage(lol);
     }
-
     public static String teamtocolor(String teamtostring) {
         switch (teamtostring) {
             case "Red":
