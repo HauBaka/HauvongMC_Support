@@ -39,6 +39,7 @@ public class KillMessage implements Listener {
         };
         lol.apply(event.getKiller());
         event.setMessage(lol);
+        System.out.println("killer current select: " + currentselect + " cause: " + cause.toString());
     }
 
     public static String teamtocolor(String teamtostring) {

@@ -1,5 +1,6 @@
 package com.HauvongMC_SP.Menu.Shop;
 
+import com.HauvongMC_SP.BedWars.PlayDeathCrySound;
 import com.HauvongMC_SP.Main;
 import com.HauvongMC_SP.Players.Coins;
 import org.bukkit.ChatColor;
@@ -116,6 +117,68 @@ public class Events implements Listener {
                      } else {
                         KillMessageShop.openMain(p, true, 1);
                      }
+                 } else if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Death Cry")) {/** lol wtf **/
+                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang trước")) {
+                         int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Quay lại trang ", ""));
+                         DeathCryShop.openMain(p, true, page);
+                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang sau")) {
+                         int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Sang trang ", ""));
+                         DeathCryShop.openMain(p, true, page);
+                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aQuay lại")) {
+                         ShopMenu.openMain(p, true);
+                     } else {
+                         if (event.getCurrentItem().getType() == Material.EMERALD) return;
+                         Main.deathcrysdata = YamlConfiguration.loadConfiguration(Main.deathcrydatafile);
+                         String name = i.getItemMeta().getDisplayName().replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
+                         if (event.isRightClick()) {
+                             PlayDeathCrySound.play(p, name);
+                            return;
+                         }
+                         List<String> unlocked = Main.deathcrysdata.getStringList("Players." + p.getName() + ".Unlocked");
+                         String current = Main.deathcrysdata.getString("Players." + p.getName() + ".Current_Select");
+                         if (name.equalsIgnoreCase(current)) {
+                             p.sendMessage("§cBạn đã chọn " + i.getItemMeta().getDisplayName() +"§c rồi!");
+                             p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 0.5f, 0.5f);
+                         } else if (unlocked.contains(name)) {
+                             Main.deathcrysdata.set("Players." + p.getName() + ".Current_Select", name);
+                             try {
+                                 Main.deathcrysdata.save(Main.deathcrydatafile);
+                             } catch (IOException e) {
+                                 e.printStackTrace();
+                             }
+                             p.sendMessage("§aĐã chọn " + i.getItemMeta().getDisplayName() +"§a!");
+                             p.playSound(p.getLocation(), Sound.ORB_PICKUP, 0.5f, 0.5f);
+                             DeathCryShop.openMain(p, true, 1);
+                         } else {
+                             double price = Main.deathcrys.getDouble("deathcrys." + name + ".price");
+                             if (price <=  Coins.getcoins(p).doubleValue()) {
+                                 ConfirmBuy.openMain(p, "DeathCry", price, i.getItemMeta().getDisplayName());
+                             } else {
+                                 p.sendMessage("§cBạn không đủ tiền!");
+                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 0.5f, 0.5f);
+                             }
+                         }
+                     }
+                 } else if (event.getInventory().getName().equalsIgnoreCase("Xác nhận mua Tiếng khóc địa ngục")) {
+                     Main.deathcrysdata = YamlConfiguration.loadConfiguration(Main.deathcrydatafile);
+                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aXác nhận")) {
+                         unlocked = Main.deathcrysdata.getStringList("Players." + p.getName() + ".Unlocked");
+                         String item = i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 2).replace("§7Mở khóa: ", "").replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
+                         unlocked.add(unlocked.size(), item);
+                         int price = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 1).replace("§7Giá:§e ", "").replace(".0", ""));
+                         Main.deathcrysdata.set("Players." + p.getName() + ".Unlocked", unlocked);
+                         try {
+                             Coins.removeCoins(p, price);
+                             Main.deathcrysdata.save(Main.deathcrydatafile);
+                             DeathCryShop.openMain(p, true, 1);
+                             p.playSound(p.getLocation(), Sound.ORB_PICKUP, 0.5f, 0.5f);
+                             p.sendMessage("§aĐã mua " + item + "§a!");
+                         } catch (IOException e) {
+                             e.printStackTrace();
+                         }
+                     } else {
+                         DeathCryShop.openMain(p, true, 1);
+                     }
                  }
             }
             event.setCancelled(true);
@@ -125,6 +188,18 @@ public class Events implements Listener {
     @EventHandler
     public void playerjoin(PlayerJoinEvent event) {
         Main.killmessagesdata = YamlConfiguration.loadConfiguration(Main.killmessagedatafile);
+        if (Main.killmessagesdata.getString("Players." + event.getPlayer().getName() + ".Current_Select") == null) {
+            Main.killmessagesdata.set("Players." + event.getPlayer().getName() + ".Current_Select", "Default");
+            unlocked = new ArrayList<>();
+            unlocked.add(unlocked.size(), "Default");
+            Main.killmessagesdata.set("Players." + event.getPlayer().getName() + ".Unlocked", unlocked);
+            try {
+                Main.killmessagesdata.save(Main.killmessagedatafile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        Main.deathcrysdata = YamlConfiguration.loadConfiguration(Main.killmessagedatafile);
         if (Main.killmessagesdata.getString("Players." + event.getPlayer().getName() + ".Current_Select") == null) {
             Main.killmessagesdata.set("Players." + event.getPlayer().getName() + ".Current_Select", "Default");
             unlocked = new ArrayList<>();

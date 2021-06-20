@@ -37,10 +37,10 @@ import com.gmail.filoghost.holographicdisplays.api.Hologram;
 public class Main extends JavaPlugin {
 	public static HashMap<Player, List<Hologram>> leaderboards = new HashMap<>();
 	public static List<Location> leaderboards_location = new ArrayList<>();
-	public static List<String> killmessageslist = new ArrayList<>();
-    public static FileConfiguration killmessages;
+	public static List<String> killmessageslist = new ArrayList<>(), deathcryslist = new ArrayList<>();
+    public static FileConfiguration killmessages, deathcrys, deathcrysdata;
     public static FileConfiguration killmessagesdata;
-    public static File configfile, killmessagesfile, killmessagedatafile;
+    public static File configfile, killmessagesfile, killmessagedatafile, deathcryfile, deathcrydatafile;
     private static Plugin plugin;
     @Override
     public void onEnable() {
@@ -61,7 +61,13 @@ public class Main extends JavaPlugin {
         killmessagedatafile = new File(Bukkit.getServer().getPluginManager().getPlugin("HauvongMC_Support").getDataFolder(), "killmessagesdata.yml");
         killmessages = YamlConfiguration.loadConfiguration(killmessagesfile);
         killmessagesdata = YamlConfiguration.loadConfiguration(killmessagedatafile);
-        registerLeaderboardsLocation();
+        //
+        deathcryfile  = new File(Bukkit.getServer().getPluginManager().getPlugin("HauvongMC_Support").getDataFolder(), "deathcrys.yml");
+        deathcrydatafile  = new File(Bukkit.getServer().getPluginManager().getPlugin("HauvongMC_Support").getDataFolder(), "deathcrysdata.yml");
+        deathcrys = YamlConfiguration.loadConfiguration(deathcryfile);
+        deathcrysdata = YamlConfiguration.loadConfiguration(deathcrydatafile);
+        deathcryslist = deathcrys.getStringList("Lists");
+                registerLeaderboardsLocation();
     }
 
     private void registerLeaderboardsLocation() {
@@ -76,7 +82,10 @@ public class Main extends JavaPlugin {
     public static List<String> getkillmessageslist() {
         return killmessageslist;
     }
-    
+
+    public static List<String> getDeathcryslist() { return deathcryslist; }
+
+
     private void registerevents() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new BedwarsArenaStartMessage(),  this);
