@@ -8,6 +8,6 @@ import org.bukkit.event.Listener;
 public class DeathCry implements Listener {
     @EventHandler
     public void playerKill(PlayerKillEvent event) {
-        PlayDeathCrySound.play(event.getVictim(), Main.deathcrysdata.getString("Players." + event.getVictim().getName() + ".Current_Select"));
+        PlayDeathCrySound.play(event.getVictim().getPlayer(), Main.deathcrysdata.getString("Players." + event.getVictim().getName() + ".Current_Select"));
     }
 }
