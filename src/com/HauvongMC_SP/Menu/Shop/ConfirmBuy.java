@@ -38,6 +38,28 @@ public class ConfirmBuy {
             inventory.setItem(15, itemStack);
             //
             p.openInventory(inventory);
+        } else if (type.equalsIgnoreCase("DeathCry")) {
+            inventory = Bukkit.createInventory(p, 27, "Xác nhận mua Tiếng khóc địa ngục");
+            //
+            itemStack = new ItemStack(Material.STAINED_CLAY, 1, (short) 13);
+            itemMeta= itemStack.getItemMeta();
+            itemLore = new ArrayList<>();
+            itemLore.add("§7Mở khóa: " + item);
+            itemLore.add("§7Giá:§e " + price);
+            itemMeta.setLore(itemLore);
+            itemMeta.setDisplayName("§aXác nhận");
+            itemStack.setItemMeta(itemMeta);
+            inventory.setItem(11, itemStack);
+            //
+            itemStack = new ItemStack(Material.STAINED_CLAY, 1, (short) 14);
+            itemMeta= itemStack.getItemMeta();
+            itemLore = new ArrayList<>();
+            itemMeta.setLore(itemLore);
+            itemMeta.setDisplayName("§cHủy");
+            itemStack.setItemMeta(itemMeta);
+            inventory.setItem(15, itemStack);
+            //
+            p.openInventory(inventory);
         }
     }
 }

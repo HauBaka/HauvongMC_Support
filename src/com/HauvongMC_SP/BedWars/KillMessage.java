@@ -45,9 +45,9 @@ public class KillMessage implements Listener {
     public static String teamtocolor(String teamtostring) {
         System.out.println("team can doi mau: " + teamtostring);
         switch (teamtostring) {
-            case "Red":
+            case "RED":
                 return "§c";
-            case "Blue":
+            case "BLUE":
                 return "§9";
             case "GREEN":
                 return "§a";

@@ -21,7 +21,7 @@ public class DeathCryShop {
     private static int slot,start, test;
     private static String colorcode, rarity, name, deathcry, currentselect;
     public static void openMain(Player p, boolean goback, int page) {
-        inventory = Bukkit.createInventory(p, 54, "Cửa hàng Death Cry");
+        inventory = Bukkit.createInventory(p, 54, "Cửa hàng Tiếng khóc địa ngục");
         //coins
         itemStack = new ItemStack(Material.EMERALD);
         itemMeta= itemStack.getItemMeta();
@@ -47,7 +47,7 @@ public class DeathCryShop {
         unlocked = Main.deathcrysdata.getStringList("Players." +  p.getName() + ".Unlocked");
         slot = 10;
         start = page*21-21;
-        deathcrys = Main.getkillmessageslist();
+        deathcrys = Main.getDeathcryslist();
         if (page > 1) {
             itemStack = new ItemStack(Material.ARROW);
             itemMeta = itemStack.getItemMeta();
@@ -63,18 +63,17 @@ public class DeathCryShop {
         for (int i = start; i < deathcrys.size(); i++) {
             deathcry = deathcrys.get(i);
             name = deathcry.replace("_", " ");
-            itemStack = new ItemStack(Material.getMaterial(Main.killmessages.getInt("killmessages." + deathcry + ".ID")));
+            itemStack = new ItemStack(Material.getMaterial(Main.deathcrys.getInt("deathcrys." + deathcry + ".ID")));
             itemMeta = itemStack.getItemMeta();
             itemLore = new ArrayList<>();
-            itemLore.add("§8Tin nhắn giết người");
+            itemLore.add("§8Tiếng khóc địa ngục");
             itemLore.add(" ");
-            itemLore.add("§7Chọn tin nhắn giết người " + name + ".");
-            itemLore.add("§7Sau khi chọn cái nầy bạn sẽ");
-            itemLore.add("§7giảng đạo lí cho kẻ thù.");
+            itemLore.add("§7Tiếng khóc địa ngục " + name + "");
+            itemLore.add("§7sẽ phát lên khi bạn chết.");
             itemLore.add(" ");
             itemLore.add("§eNhấp chuột phải để xem!");
             itemLore.add(" ");
-            rarity = Main.killmessages.getString("killmessages." + deathcry + ".rarity");
+            rarity = Main.killmessages.getString("deathcrys." + deathcry + ".rarity");
             colorcode = "";
             switch (rarity) {
                 case "COMMON":
@@ -98,7 +97,7 @@ public class DeathCryShop {
                 itemLore.add(" ");
                 itemLore.add("§eNhấp để chọn!");
             } else {
-                itemLore.add("§7Giá:§e " + Main.killmessages.getInt("killmessages." + deathcry + ".price"));
+                itemLore.add("§7Giá:§e " + Main.deathcrys.getInt("deathcrys." + deathcry + ".price"));
                 itemLore.add(" ");
                 itemLore.add("§eNhấp vào để mua!");
             }

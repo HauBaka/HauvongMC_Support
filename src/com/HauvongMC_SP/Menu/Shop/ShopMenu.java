@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.HauvongMC_SP.Players.Coins;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class ShopMenu {
     private static Inventory inventory;
     private static ItemStack itemStack;
     private static ItemMeta itemMeta;
+    private static SkullMeta head;
     private static List<String> itemLore;
     public static void openMain(Player p, boolean goback) {
         inventory = Bukkit.createInventory(p, 54, "Hàng của tôi");
@@ -27,7 +29,17 @@ public class ShopMenu {
         itemMeta.setLore(itemLore);
         itemMeta.setDisplayName("§aKill Message");
         itemStack.setItemMeta(itemMeta);
-        inventory.setItem(22, itemStack);
+        inventory.setItem(20, itemStack);
+        //death crys
+        itemStack = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        head = (SkullMeta) itemStack.getItemMeta();
+        head.setOwner("HauvongMC");
+        itemLore = new ArrayList<>();
+        itemLore.add("");
+        head.setLore(itemLore);
+        head.setDisplayName("§aTiếng khóc địa ngục");
+        itemStack.setItemMeta(head);
+        inventory.setItem(24, itemStack);
         //coins
         itemStack = new ItemStack(Material.EMERALD);
         itemMeta= itemStack.getItemMeta();
