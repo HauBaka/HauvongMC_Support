@@ -19,9 +19,6 @@ public class PlayDeathCrySound {
             case "Dinosaur":
                 music = "CAT_MEOW";
                 break;
-            case "Robot_Mouse":
-                music = "";
-                break;
             case "Pig":
                 music = "PIG_DEATH";
                 break;
@@ -29,7 +26,7 @@ public class PlayDeathCrySound {
                 music = "WOLF_DEATH";
                 break;
             case "Grumpy_Villager":
-                music = "VILALGER_DEATH";
+                music = "VILLAGER_DEATH";
                 break;
             case "Monster_Burp":
                 music = "ZOMBIE_DEATH";
