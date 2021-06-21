@@ -24,7 +24,7 @@ public class Events implements Listener {
     private static List<String> unlocked;
     @EventHandler
     public void inclick(InventoryClickEvent event) {
-        if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Bed Wars") || event.getInventory().getName().equalsIgnoreCase("Hàng của tôi") || event.getInventory().getName().equalsIgnoreCase("Cửa hàng KillMessage") || event.getInventory().getName().equalsIgnoreCase("Xác nhận mua Tin nhắn giết người")) {
+        if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Bed Wars") || event.getInventory().getName().equalsIgnoreCase("Hàng của tôi") || event.getInventory().getName().equalsIgnoreCase("Cửa hàng KillMessage") || event.getInventory().getName().equalsIgnoreCase("Xác nhận mua Tin nhắn giết người") || event.getInventory().getName().equalsIgnoreCase("Cửa hàng Tiếng khóc địa ngục") || event.getInventory().getName().equalsIgnoreCase("Xác nhận mua Tiếng khóc địa ngục")) {
             ItemStack i = event.getCurrentItem();
             if (i != null && i.hasItemMeta()) {
                 if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§cĐóng"))  {
@@ -120,6 +120,7 @@ public class Events implements Listener {
                         KillMessageShop.openMain(p, true, 1);
                      }
                  } else if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Tiếng khóc địa ngục")) {
+                     p.sendMessage("true");
                      if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang trước")) {
                          int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Quay lại trang ", ""));
                          DeathCryShop.openMain(p, true, page);
