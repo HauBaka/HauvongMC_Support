@@ -119,7 +119,7 @@ public class Events implements Listener {
                      } else {
                         KillMessageShop.openMain(p, true, 1);
                      }
-                 } else if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Tiếng khóc địa ngục")) {/** lol wtf **/
+                 } else if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Tiếng khóc địa ngục")) {
                      if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang trước")) {
                          int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Quay lại trang ", ""));
                          DeathCryShop.openMain(p, true, page);
