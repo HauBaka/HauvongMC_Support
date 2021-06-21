@@ -17,7 +17,7 @@ public class PlaySoundCommand implements CommandExecutor {
             Player p = ((Player) sender).getPlayer();
             rank = GetPlayerData.getInfo(p.getName(), "Rank");
             if (rank.equalsIgnoreCase("Moderator") || rank.equalsIgnoreCase("Admin") || rank.equalsIgnoreCase("Owner") || p.isOp()) {
-                if (args.length > 0) PlayDeathCrySound.play(p, args[1]);
+                if (args.length > 0) PlayDeathCrySound.play(p, args[0]);
             }
         }
         return false;
