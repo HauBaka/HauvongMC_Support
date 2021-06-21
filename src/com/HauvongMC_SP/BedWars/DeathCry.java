@@ -16,6 +16,6 @@ public class DeathCry implements Listener {
             public void run() {
                 PlayDeathCrySound.play(event.getVictim().getPlayer(), Main.deathcrysdata.getString("Players." + event.getVictim().getPlayer().getName() + ".Current_Select"));
             }
-        }, 5);
+        }, 3);
     }
 }
