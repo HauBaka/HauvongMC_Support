@@ -1,12 +1,6 @@
 package com.HauvongMC_SP;
 
-import com.HauvongMC_SP.BedWars.MoreInfo;
-import com.HauvongMC_SP.BedWars.PAPIHook;
-import com.HauvongMC_SP.BedWars.BedwarsArenaStartMessage;
-import com.HauvongMC_SP.BedWars.KillMessage;
-import com.HauvongMC_SP.BedWars.Leaderboards;
-import com.HauvongMC_SP.BedWars.Quest;
-import com.HauvongMC_SP.BedWars.Menu;
+import com.HauvongMC_SP.BedWars.*;
 import com.HauvongMC_SP.Cmds.GameMenuCommand;
 import com.HauvongMC_SP.Cmds.PlaySoundCommand;
 import com.HauvongMC_SP.Cmds.QuestCommand;
@@ -101,6 +95,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new Leaderboards(),  this);
         pm.registerEvents(new Events(), this);
         pm.registerEvents(new KillMessage(),  this);
+        pm.registerEvents(new DeathCry(),  this);
     }
     
     public static Connection connection;
