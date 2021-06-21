@@ -42,7 +42,7 @@ public class DeathCryShop {
             itemStack.setItemMeta(itemMeta);
             inventory.setItem(48, itemStack);
         }
-        //Killmessages
+        //death crys
         currentselect = Main.deathcrysdata.getString("Players." + p.getName() + ".Current_Select");
         unlocked = Main.deathcrysdata.getStringList("Players." +  p.getName() + ".Unlocked");
         slot = 10;
@@ -73,7 +73,7 @@ public class DeathCryShop {
             itemLore.add(" ");
             itemLore.add("§eNhấp chuột phải để xem!");
             itemLore.add(" ");
-            rarity = Main.killmessages.getString("deathcrys." + deathcry + ".rarity");
+            rarity = Main.deathcrys.getString("deathcrys." + deathcry + ".rarity");
             colorcode = "";
             switch (rarity) {
                 case "COMMON":
