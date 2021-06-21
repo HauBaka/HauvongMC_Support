@@ -8,6 +8,7 @@ import com.HauvongMC_SP.BedWars.Leaderboards;
 import com.HauvongMC_SP.BedWars.Quest;
 import com.HauvongMC_SP.BedWars.Menu;
 import com.HauvongMC_SP.Cmds.GameMenuCommand;
+import com.HauvongMC_SP.Cmds.PlaySoundCommand;
 import com.HauvongMC_SP.Cmds.QuestCommand;
 import com.HauvongMC_SP.Cmds.ShopCommand;
 import com.HauvongMC_SP.Menu.GamePlayMenu;
@@ -50,6 +51,7 @@ public class Main extends JavaPlugin {
         this.getCommand("specmenu").setExecutor(new Menu());
         this.getCommand("playgame").setExecutor(new GameMenuCommand());
         this.getCommand("quest").setExecutor(new QuestCommand());
+        this.getCommand("playsound").setExecutor(new PlaySoundCommand());
         mysqlSetup();
         this.getCommand("shopkeeper").setExecutor(new ShopCommand());
         mysqlSetup();

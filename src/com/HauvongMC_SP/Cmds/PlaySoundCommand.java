@@ -13,10 +13,12 @@ public class PlaySoundCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) return false;
-        Player p = ((Player) sender).getPlayer();
-        rank = GetPlayerData.getInfo(p.getName(), "Rank");
-        if (rank.equalsIgnoreCase("Moderator") || rank.equalsIgnoreCase("Admin") || rank.equalsIgnoreCase("Owner") || p.isOp()) {
-           if (args.length > 0) PlayDeathCrySound.play(p, args[1]);
+        if (label.equalsIgnoreCase("playsound")) {
+            Player p = ((Player) sender).getPlayer();
+            rank = GetPlayerData.getInfo(p.getName(), "Rank");
+            if (rank.equalsIgnoreCase("Moderator") || rank.equalsIgnoreCase("Admin") || rank.equalsIgnoreCase("Owner") || p.isOp()) {
+                if (args.length > 0) PlayDeathCrySound.play(p, args[1]);
+            }
         }
         return false;
     }
