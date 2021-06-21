@@ -69,6 +69,6 @@ public class PlayDeathCrySound {
                 break;
         }
         if (music == null) music = "SLIME_WALK";
-        p.playSound(p.getLocation(), Sound.valueOf(sound), 0.5f, 0.5f);
+        p.playSound(p.getLocation(), Sound.valueOf(music), 0.5f, 0.5f);
     }
 }
