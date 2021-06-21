@@ -72,6 +72,7 @@ public class Events implements Listener {
                              p.sendMessage("");
                              p.sendMessage("");
                              p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"));
+                             event.setCancelled(true);
                              return;
                          }
                          List<String> unlocked = Main.killmessagesdata.getStringList("Players." + p.getName() + ".Unlocked");
@@ -120,7 +121,6 @@ public class Events implements Listener {
                         KillMessageShop.openMain(p, true, 1);
                      }
                  } else if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Tiếng khóc địa ngục")) {
-                     p.sendMessage("true");
                      if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang trước")) {
                          int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Quay lại trang ", ""));
                          DeathCryShop.openMain(p, true, page);
@@ -135,6 +135,7 @@ public class Events implements Listener {
                          String name = i.getItemMeta().getDisplayName().replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
                          if (event.isRightClick()) {
                              PlayDeathCrySound.play(p, name);
+                             event.setCancelled(true);
                             return;
                          }
                          List<String> unlocked = Main.deathcrysdata.getStringList("Players." + p.getName() + ".Unlocked");
