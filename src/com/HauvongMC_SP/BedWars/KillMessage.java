@@ -4,6 +4,7 @@ import com.HauvongMC_SP.Main;
 import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.arena.team.TeamColor;
 import com.andrei1058.bedwars.api.events.player.PlayerKillEvent;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,6 +19,7 @@ public class KillMessage implements Listener {
     @EventHandler
     public void kill(PlayerKillEvent event) {
         cause = event.getVictim().getLastDamageCause().getCause();
+        Main.killmessagesdata = YamlConfiguration.loadConfiguration(Main.killmessagedatafile);
         currentselect = Main.killmessagesdata.getString("Players." + event.getKiller().getName() + ".Current_Select");
         message = Main.killmessages.getString("killmessages." + currentselect + ".texts.Melee");
         if (cause.equals(EntityDamageEvent.DamageCause.ENTITY_ATTACK)) {
