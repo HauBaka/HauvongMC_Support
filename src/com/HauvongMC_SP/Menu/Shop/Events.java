@@ -203,14 +203,14 @@ public class Events implements Listener {
                 e.printStackTrace();
             }
         }
-        Main.deathcrysdata = YamlConfiguration.loadConfiguration(Main.killmessagedatafile);
-        if (Main.killmessagesdata.getString("Players." + event.getPlayer().getName() + ".Current_Select") == null) {
-            Main.killmessagesdata.set("Players." + event.getPlayer().getName() + ".Current_Select", "Default");
+        Main.deathcrysdata = YamlConfiguration.loadConfiguration(Main.deathcrydatafile);
+        if (Main.deathcrysdata.getString("Players." + event.getPlayer().getName() + ".Current_Select") == null) {
+            Main.deathcrysdata.set("Players." + event.getPlayer().getName() + ".Current_Select", "Default");
             unlocked = new ArrayList<>();
             unlocked.add(unlocked.size(), "Default");
             Main.killmessagesdata.set("Players." + event.getPlayer().getName() + ".Unlocked", unlocked);
             try {
-                Main.killmessagesdata.save(Main.killmessagedatafile);
+                Main.deathcrysdata.save(Main.deathcrydatafile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
