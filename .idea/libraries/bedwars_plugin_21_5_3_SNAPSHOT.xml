@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="bedwars-plugin-21.5.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../Work/Code/API/bedwars-plugin-21.5.3-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Work/Code/API/spigot-1.8.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../Work/Code/API/spigot-1.8.8.jar!/" />
+    </SOURCES>
+  </library>
+</component>

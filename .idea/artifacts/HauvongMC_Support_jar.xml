@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="HauvongMC_Support:jar">
-    <output-path>$USER_HOME$/Downloads/SERVER 13.06.21/SERVER/BEDWARS/plugins</output-path>
+    <output-path>$PROJECT_DIR$/../Servers/BEDWARS/plugins</output-path>
     <root id="archive" name="HauvongMC_Support.jar">
       <element id="module-output" name="HauvongMC_Support" />
     </root>

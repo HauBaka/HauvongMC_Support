@@ -17,5 +17,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="spigot-1.8.8" level="project" />
+    <orderEntry type="library" name="bedwars-plugin-21.5.3-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="HolographicDisplays" level="project" />
+    <orderEntry type="library" name="PlaceholderAPI-2.10.9" level="project" />
+    <orderEntry type="library" name="lombok" level="project" />
+    <orderEntry type="library" name="Essentials-2.x-SNAPSHOT" level="project" />
   </component>
 </module>

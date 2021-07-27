@@ -18,6 +18,7 @@ public class KillMessage implements Listener {
     TeamColor teamColor;
     @EventHandler
     public void kill(PlayerKillEvent event) {
+        if (event.getKiller() == null) return;
         cause = event.getVictim().getLastDamageCause().getCause();
         Main.killmessagesdata = YamlConfiguration.loadConfiguration(Main.killmessagedatafile);
         currentselect = Main.killmessagesdata.getString("Players." + event.getKiller().getName() + ".Current_Select");
@@ -41,11 +42,9 @@ public class KillMessage implements Listener {
         };
         lol.apply(event.getKiller());
         event.setMessage(lol);
-        System.out.println("killer current select: " + currentselect + " cause: " + cause.toString());
     }
 
     public static String teamtocolor(String teamtostring) {
-        System.out.println("team can doi mau: " + teamtostring);
         switch (teamtostring) {
             case "RED":
                 return "§c";
