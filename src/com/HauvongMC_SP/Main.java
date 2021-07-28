@@ -63,6 +63,7 @@ public class Main extends JavaPlugin {
         deathcrys = YamlConfiguration.loadConfiguration(deathcryfile);
         deathcrysdata = YamlConfiguration.loadConfiguration(deathcrydatafile);
         deathcryslist = deathcrys.getStringList("Lists");
+        Leaderboards.Loop();
                 registerLeaderboardsLocation();
     }
 

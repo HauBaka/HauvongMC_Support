@@ -177,9 +177,6 @@ public class QuestMenu implements Listener {
         if (event.getInventory().getName().equalsIgnoreCase("Nhiệm vụ BedWars")) {
             ItemStack i = event.getCurrentItem();
             if (i != null && i.hasItemMeta()) {
-                if (i.getItemMeta().getDisplayName().contains("§aTự động nhận nhiệm vụ: BẬT") || i.getItemMeta().getDisplayName().equalsIgnoreCase("§cTự động nhận nhiệm vụ: TẮT")) {
-                    return;
-                }
                 Player p = (Player) event.getWhoClicked();
                 String name = i.getItemMeta().getDisplayName();
                 String lol;
@@ -204,7 +201,7 @@ public class QuestMenu implements Listener {
                         lol = "autoaccept";
                         break;
                 }
-                if (lol.equalsIgnoreCase("autoaccept")) {
+                if (i.getType().equals(Material.INK_SACK)) {
                     if (p.hasPermission("sw.quest.autoaccept")) {
                         if (GetPlayerData.getInfo2(p.getName(), "Name", "quests", "Auto_Accept").equalsIgnoreCase("1")) {
                             SetPlayerData.SetInfo(p.getName(), "quests", "Auto_Accept", "0");
@@ -218,7 +215,9 @@ public class QuestMenu implements Listener {
                         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1.0f, 1.0f);
                         p.sendMessage("§cChức năng này chỉ áp dụng cho §bMVP§c+");
                     }
+                    return;
                 } else {
+                    if (i.getType() == Material.BED) return;
                     String status =GetPlayerData.getInfo2(p.getName(), "Name", "quests", lol);
                     if (status.equalsIgnoreCase("0")) {
                         SetPlayerData.SetInfo(p.getName(), "quests", lol, "1");
