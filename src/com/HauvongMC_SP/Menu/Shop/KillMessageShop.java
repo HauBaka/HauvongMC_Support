@@ -27,9 +27,9 @@ public class KillMessageShop {
         itemStack = new ItemStack(Material.EMERALD);
         itemMeta= itemStack.getItemMeta();
         itemLore = new ArrayList<>();
-        itemLore.add("§6https://store.luckymcvn.ga");
+        itemLore.add("§3https://store.oao.net");
         itemMeta.setLore(itemLore);
-        itemMeta.setDisplayName("§7Tổng số vàng:§6 " + Coins.getcoins(p));
+        itemMeta.setDisplayName("§7Tổng số vàng:§3 " + Coins.getcoins(p));
         itemStack.setItemMeta(itemMeta);
         inventory.setItem(50, itemStack);
         //cosmetics
@@ -39,7 +39,7 @@ public class KillMessageShop {
             itemLore = new ArrayList<>();
             itemLore.add("§7Quay lại Hàng của tôi");
             itemMeta.setLore(itemLore);
-            itemMeta.setDisplayName("§aQuay lại");
+            itemMeta.setDisplayName("§dQuay lại");
             itemStack.setItemMeta(itemMeta);
             inventory.setItem(48, itemStack);
         }
@@ -57,7 +57,7 @@ public class KillMessageShop {
             test--;
             itemLore.add("§7Quay lại trang " + test);
             itemMeta.setLore(itemLore);
-            itemMeta.setDisplayName("§aTrang trước");
+            itemMeta.setDisplayName("§dTrang trước");
             itemStack.setItemMeta(itemMeta);
             inventory.setItem(18, itemStack);
         }
@@ -73,7 +73,7 @@ public class KillMessageShop {
             itemLore.add("§7Sau khi chọn cái nầy bạn sẽ");
             itemLore.add("§7giảng đạo lí cho kẻ thù.");
             itemLore.add(" ");
-            itemLore.add("§eNhấp chuột phải để xem!");
+            itemLore.add("§bNhấp chuột phải để xem!");
             itemLore.add(" ");
             rarity = Main.killmessages.getString("killmessages." + killmessage + ".rarity");
             colorcode = "";
@@ -97,11 +97,11 @@ public class KillMessageShop {
                 itemLore.add("§aĐã chọn!");
             } else if (unlocked.contains(killmessage)) {
                 itemLore.add(" ");
-                itemLore.add("§eNhấp để chọn!");
+                itemLore.add("§bNhấp để chọn!");
             } else {
-                itemLore.add("§7Giá:§e " + Main.killmessages.getInt("killmessages." + killmessage + ".price"));
+                itemLore.add("§7Giá:§b " + Main.killmessages.getInt("killmessages." + killmessage + ".price"));
                 itemLore.add(" ");
-                itemLore.add("§eNhấp vào để mua!");
+                itemLore.add("§bNhấp vào để mua!");
             }
             itemMeta.setLore(itemLore);
             itemMeta.setDisplayName(colorcode + name);
@@ -116,7 +116,7 @@ public class KillMessageShop {
                 page++;
                 itemLore.add("§7Sang trang " + page);
                 itemMeta.setLore(itemLore);
-                itemMeta.setDisplayName("§aTrang sau");
+                itemMeta.setDisplayName("§dTrang sau");
                 itemStack.setItemMeta(itemMeta);
                 inventory.setItem(26, itemStack);
                 break;

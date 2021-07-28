@@ -64,7 +64,7 @@ public class GamePlayMenu implements Listener {
         lore = new ArrayList<>();
         lore.add("§7Chơi Bed Wars chế độ " + name);
         lore.add(" ");
-        lore.add("§eNhấp để chơi!");
+        lore.add("§bNhấp để chơi!");
         itemMeta.setLore(lore);
         itemMeta.setDisplayName("§aBed Wars (" + name + ")");
         itemStack.setItemMeta(itemMeta);
@@ -76,8 +76,8 @@ public class GamePlayMenu implements Listener {
         lore.add("§7Chọn bản đồ mà bạn muốn chơi");
         lore.add("§7từ danh sách của máy chủ");
         lore.add(" ");
-        lore.add("§eChuột-phải để mở danh sách trận đã bắt đầu!");
-        lore.add("§eChuột-trái để mở danh sách trận đang chờ/bắt đầu!");
+        lore.add("§bChuột-phải để mở danh sách trận đã bắt đầu!");
+        lore.add("§bChuột-trái để mở danh sách trận đang chờ/bắt đầu!");
         itemMeta.setLore(lore);
         itemMeta.setDisplayName("§aChọn bản đồ (" + name + ")");
         itemStack.setItemMeta(itemMeta);
@@ -193,14 +193,14 @@ public class GamePlayMenu implements Listener {
                 aa = FireworkEffect.builder().withColor(Color.YELLOW).build();
             }
             String STS = status.name();
-            
+
             String arena = "";
             switch (STS) {
                 case "waiting":
                     arena = "§aĐang chờ";
                     break;
                 case "starting":
-                    arena = "§6Đang bắt đầu";
+                    arena = "§eĐang bắt đầu";
                     break;
                 case "playing":
                     arena = "§cĐang chơi";
@@ -214,11 +214,11 @@ public class GamePlayMenu implements Listener {
             lore.add("§8" + name);
             lore.add(" ");
             lore.add("§7Trạng thái: " + arena);
-            lore.add("§7Người chơi: §e" + arenas.get(i).getPlayers().size() + "§b/§e"+ arenas.get(i).getMaxPlayers());
+            lore.add("§7Người chơi: §b" + arenas.get(i).getPlayers().size() + "§9/§b"+ arenas.get(i).getMaxPlayers());
             lore.add("");
             if ((rank.equalsIgnoreCase("Default")) || (rank.equalsIgnoreCase("VIP")) || (rank.equalsIgnoreCase("VIP+")) || (rank.equalsIgnoreCase("MVP"))) {
                 lore.add("§cBạn cần có rank §bMVP§c+");
-            } else  lore.add("§eNhấp để tham gia!");
+            } else  lore.add("§bNhấp để tham gia!");
             fireworkEffectMeta.setLore(lore);
             fireworkEffectMeta.setDisplayName("§a" + arenas.get(i).getDisplayName());
             itemStack.setItemMeta(fireworkEffectMeta);
@@ -305,14 +305,14 @@ public class GamePlayMenu implements Listener {
             aa = FireworkEffect.builder().withColor(Color.RED).build();
             status = arenas.get(i).getStatus();
             String STS = status.name();
-            
+
             String arena = "";
             switch (STS) {
                 case "waiting":
                     arena = "§aĐang chờ";
                     break;
                 case "starting":
-                    arena = "§6Đang bắt đầu";
+                    arena = "§3Đang bắt đầu";
                     break;
                 case "playing":
                     arena = "§cĐang chơi";
@@ -326,9 +326,9 @@ public class GamePlayMenu implements Listener {
             lore.add("§8" + name);
             lore.add(" ");
             lore.add("§7Trạng thái: " + arena);
-            lore.add("§7Người chơi: §e" + arenas.get(i).getPlayers().size() + "§b/§e"+ arenas.get(i).getMaxPlayers());
+            lore.add("§7Người chơi: §b" + arenas.get(i).getPlayers().size() + "§9/§b"+ arenas.get(i).getMaxPlayers());
             lore.add("");
-            lore.add("§eNhấp để theo dõi!");
+            lore.add("§bNhấp để theo dõi!");
             fireworkEffectMeta.setLore(lore);
             fireworkEffectMeta.setDisplayName("§c" + arenas.get(i).getDisplayName());
             itemStack.setItemMeta(fireworkEffectMeta);

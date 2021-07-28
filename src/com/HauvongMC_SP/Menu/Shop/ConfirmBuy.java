@@ -23,7 +23,7 @@ public class ConfirmBuy {
             itemMeta= itemStack.getItemMeta();
             itemLore = new ArrayList<>();
             itemLore.add("§7Mở khóa: " + item);
-            itemLore.add("§7Giá:§e " + price);
+            itemLore.add("§7Giá:§b " + price);
             itemMeta.setLore(itemLore);
             itemMeta.setDisplayName("§aXác nhận");
             itemStack.setItemMeta(itemMeta);
@@ -45,7 +45,7 @@ public class ConfirmBuy {
             itemMeta= itemStack.getItemMeta();
             itemLore = new ArrayList<>();
             itemLore.add("§7Mở khóa: " + item);
-            itemLore.add("§7Giá:§e " + price);
+            itemLore.add("§7Giá:§b " + price);
             itemMeta.setLore(itemLore);
             itemMeta.setDisplayName("§aXác nhận");
             itemStack.setItemMeta(itemMeta);

@@ -23,9 +23,9 @@ public class MainMenu {
         itemStack = new ItemStack(Material.EMERALD);
         itemMeta= itemStack.getItemMeta();
         itemLore = new ArrayList<>();
-        itemLore.add("§6https://store.luckymcvn.ga");
+        itemLore.add("§3https://store.oao.net");
         itemMeta.setLore(itemLore);
-        itemMeta.setDisplayName("§7Tổng số vàng:§6 " + Coins.getcoins(p));
+        itemMeta.setDisplayName("§7Tổng số vàng:§3 " + Coins.getcoins(p));
         itemStack.setItemMeta(itemMeta);
         inventory.setItem(50, itemStack);
         //cosmetics
@@ -36,14 +36,14 @@ public class MainMenu {
         itemLore.add("§7chất chơi hơn sau khi ghé vô");
         itemLore.add("§7đây. Các sản phẩm trong đây");
         itemLore.add("§7bạn cũng có thể tìm thấy trong");
-        itemLore.add("§6Loot Chest§7 thay vì mua.");
+        itemLore.add("§3Loot Chest§7 thay vì mua.");
         itemLore.add("§7");
         itemLore.add("§cCác sản phẩm trong đây chỉ có");
         itemLore.add("§ctác dụng làm ngầu và không");
         itemLore.add("§ccó tác dụng phụ (trừ lag server)");
         itemLore.add("§cnên đừng bảo sv pay to win :((");
         itemMeta.setLore(itemLore);
-        itemMeta.setDisplayName("§aCửa hàng");
+        itemMeta.setDisplayName("§dCửa hàng");
         itemStack.setItemMeta(itemMeta);
         inventory.setItem(22, itemStack);
         //close

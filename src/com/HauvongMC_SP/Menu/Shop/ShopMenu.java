@@ -27,7 +27,7 @@ public class ShopMenu {
         itemLore = new ArrayList<>();
         itemLore.add("");
         itemMeta.setLore(itemLore);
-        itemMeta.setDisplayName("§aKill Message");
+        itemMeta.setDisplayName("§dKill Message");
         itemStack.setItemMeta(itemMeta);
         inventory.setItem(20, itemStack);
         //death crys
@@ -37,16 +37,16 @@ public class ShopMenu {
         itemLore = new ArrayList<>();
         itemLore.add("");
         head.setLore(itemLore);
-        head.setDisplayName("§aTiếng khóc địa ngục");
+        head.setDisplayName("§dTiếng khóc địa ngục");
         itemStack.setItemMeta(head);
         inventory.setItem(24, itemStack);
         //coins
         itemStack = new ItemStack(Material.EMERALD);
         itemMeta= itemStack.getItemMeta();
         itemLore = new ArrayList<>();
-        itemLore.add("§6https://store.luckymcvn.ga");
+        itemLore.add("§3https://store.oao.net");
         itemMeta.setLore(itemLore);
-        itemMeta.setDisplayName("§7Tổng số vàng:§6 " + Coins.getcoins(p));
+        itemMeta.setDisplayName("§7Tổng số vàng:§3 " + Coins.getcoins(p));
         itemStack.setItemMeta(itemMeta);
         inventory.setItem(49, itemStack);
         //cosmetics
@@ -56,7 +56,7 @@ public class ShopMenu {
             itemLore = new ArrayList<>();
             itemLore.add("§7Quay lại Cửa hàng Bed Wars");
             itemMeta.setLore(itemLore);
-            itemMeta.setDisplayName("§aQuay lại");
+            itemMeta.setDisplayName("§dQuay lại");
             itemStack.setItemMeta(itemMeta);
             inventory.setItem(48, itemStack);
         }

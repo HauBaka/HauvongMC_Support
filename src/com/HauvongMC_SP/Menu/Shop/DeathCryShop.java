@@ -26,9 +26,9 @@ public class DeathCryShop {
         itemStack = new ItemStack(Material.EMERALD);
         itemMeta= itemStack.getItemMeta();
         itemLore = new ArrayList<>();
-        itemLore.add("§6https://store.luckymcvn.ga");
+        itemLore.add("§3https://store.oao.net");
         itemMeta.setLore(itemLore);
-        itemMeta.setDisplayName("§7Tổng số vàng:§6 " + Coins.getcoins(p));
+        itemMeta.setDisplayName("§7Tổng số vàng:§3 " + Coins.getcoins(p));
         itemStack.setItemMeta(itemMeta);
         inventory.setItem(50, itemStack);
         //cosmetics
@@ -38,7 +38,7 @@ public class DeathCryShop {
             itemLore = new ArrayList<>();
             itemLore.add("§7Quay lại Hàng của tôi");
             itemMeta.setLore(itemLore);
-            itemMeta.setDisplayName("§aQuay lại");
+            itemMeta.setDisplayName("§dQuay lại");
             itemStack.setItemMeta(itemMeta);
             inventory.setItem(48, itemStack);
         }
@@ -56,7 +56,7 @@ public class DeathCryShop {
             test--;
             itemLore.add("§7Quay lại trang " + test);
             itemMeta.setLore(itemLore);
-            itemMeta.setDisplayName("§aTrang trước");
+            itemMeta.setDisplayName("§dTrang trước");
             itemStack.setItemMeta(itemMeta);
             inventory.setItem(18, itemStack);
         }
@@ -71,7 +71,7 @@ public class DeathCryShop {
             itemLore.add("§7Tiếng khóc địa ngục " + name + "");
             itemLore.add("§7sẽ phát lên khi bạn chết.");
             itemLore.add(" ");
-            itemLore.add("§eNhấp chuột phải để xem!");
+            itemLore.add("§bNhấp chuột phải để xem!");
             itemLore.add(" ");
             rarity = Main.deathcrys.getString("deathcrys." + deathcry + ".rarity");
             colorcode = "";
@@ -92,14 +92,14 @@ public class DeathCryShop {
             itemLore.add("§7Độ hiếm: " + colorcode + rarity);
             if (currentselect.equalsIgnoreCase(deathcry)) {
                 itemLore.add(" ");
-                itemLore.add("§aĐã chọn!");
+                itemLore.add("§dĐã chọn!");
             } else if (unlocked.contains(deathcry)) {
                 itemLore.add(" ");
-                itemLore.add("§eNhấp để chọn!");
+                itemLore.add("§bNhấp để chọn!");
             } else {
-                itemLore.add("§7Giá:§e " + Main.deathcrys.getInt("deathcrys." + deathcry + ".price"));
+                itemLore.add("§7Giá:§b " + Main.deathcrys.getInt("deathcrys." + deathcry + ".price"));
                 itemLore.add(" ");
-                itemLore.add("§eNhấp vào để mua!");
+                itemLore.add("§bNhấp vào để mua!");
             }
             itemMeta.setLore(itemLore);
             itemMeta.setDisplayName(colorcode + name);
@@ -114,7 +114,7 @@ public class DeathCryShop {
                 page++;
                 itemLore.add("§7Sang trang " + page);
                 itemMeta.setLore(itemLore);
-                itemMeta.setDisplayName("§aTrang sau");
+                itemMeta.setDisplayName("§dTrang sau");
                 itemStack.setItemMeta(itemMeta);
                 inventory.setItem(26, itemStack);
                 break;

@@ -33,45 +33,45 @@ public class Events implements Listener {
                 }
                 Player p = (Player) event.getWhoClicked();
                  if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Bed Wars")) {
-                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aCửa hàng")) {
+                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dCửa hàng")) {
                          ShopMenu.openMain(p, true);
                      }
                  } else if (event.getInventory().getName().equalsIgnoreCase("Hàng của tôi")) {
-                    if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aKill Message")) {
+                    if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dKill Message")) {
                         KillMessageShop.openMain(p, true, 1);
-                    } else  if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTiếng khóc địa ngục")) {
+                    } else  if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dTiếng khóc địa ngục")) {
                          DeathCryShop.openMain(p, true, 1);
-                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aQuay lại")) {
+                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dQuay lại")) {
                         MainMenu.openMain(p);
                     }
                  } else if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng KillMessage")) {
-                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang trước")) {
+                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dTrang trước")) {
                          int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Quay lại trang ", ""));
                             KillMessageShop.openMain(p, true, page);
-                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang sau")) {
+                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dTrang sau")) {
                          int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Sang trang ", ""));
                          KillMessageShop.openMain(p, true, page);
-                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aQuay lại")) {
+                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dQuay lại")) {
                          ShopMenu.openMain(p, true);
                      } else {
                          if (event.getCurrentItem().getType() == Material.EMERALD) return;
 
                          Main.killmessagesdata = YamlConfiguration.loadConfiguration(Main.killmessagedatafile);
-                         String name = i.getItemMeta().getDisplayName().replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
+                         String name = i.getItemMeta().getDisplayName().replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_").replace("&d", "").replace("&9", "").replace("&3", "");
                          if (event.isRightClick()) {
                              PermissionUser user = PermissionsEx.getUser(p);
                              p.closeInventory();
-                             p.sendMessage("§e§l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                             p.sendMessage("§b§l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                              p.sendMessage("");
                              p.sendMessage("");
                              p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.killmessages.getString("killmessages." + name + ".texts.Melee").replaceAll("%victim", ChatColor.translateAlternateColorCodes('&', "&cHauvongMC")).replaceAll("%killer", user.getSuffix() + String.valueOf(p.getName()))));
                              p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.killmessages.getString("killmessages." + name + ".texts.Void").replaceAll("%victim", ChatColor.translateAlternateColorCodes('&', "&cHauvongMC")).replaceAll("%killer", user.getSuffix() + String.valueOf(p.getName()))));
                              p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.killmessages.getString("killmessages." + name + ".texts.Fall").replaceAll("%victim", ChatColor.translateAlternateColorCodes('&', "&cHauvongMC")).replaceAll("%killer", user.getSuffix() + String.valueOf(p.getName()))));
                              p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.killmessages.getString("killmessages." + name + ".texts.Shot").replaceAll("%victim", ChatColor.translateAlternateColorCodes('&', "&cHauvongMC")).replaceAll("%killer", user.getSuffix() + String.valueOf(p.getName()))));
-                             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eXuất hiện trên màn hình nạn nhân: " + Main.killmessages.getString("killmessages." + name + ".Screen")));
+                             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bXuất hiện trên màn hình nạn nhân: " + Main.killmessages.getString("killmessages." + name + ".Screen")));
                              p.sendMessage("");
                              p.sendMessage("");
-                             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"));
+                             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"));
                              event.setCancelled(true);
                              return;
                          }
@@ -87,7 +87,7 @@ public class Events implements Listener {
                              } catch (IOException e) {
                                  e.printStackTrace();
                              }
-                             p.sendMessage("§aĐã chọn " + i.getItemMeta().getDisplayName() +"§a!");
+                             p.sendMessage("§dĐã chọn " + i.getItemMeta().getDisplayName() +"§d!");
                              p.playSound(p.getLocation(), Sound.ORB_PICKUP, 0.5f, 0.5f);
                              KillMessageShop.openMain(p, true, 1);
                          } else {
@@ -104,16 +104,16 @@ public class Events implements Listener {
                      Main.killmessagesdata = YamlConfiguration.loadConfiguration(Main.killmessagedatafile);
                      if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aXác nhận")) {
                          unlocked = Main.killmessagesdata.getStringList("Players." + p.getName() + ".Unlocked");
-                         String item = i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 2).replace("§7Mở khóa: ", "").replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
+                         String item = i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 2).replace("§7Mở khóa: ", "").replace("§a", "").replace("§b", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_").replace("&d", "").replace("&9", "").replace("&3", "").replace("§6", "").replace("§d", "").replace(" ", "_");
                          unlocked.add(unlocked.size(), item);
-                         int price = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 1).replace("§7Giá:§e ", "").replace(".0", ""));
+                         int price = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 1).replace("§7Giá:§d ", "").replace(".0", ""));
                          Main.killmessagesdata.set("Players." + p.getName() + ".Unlocked", unlocked);
                          try {
                              Coins.removeCoins(p, price);
                              Main.killmessagesdata.save(Main.killmessagedatafile);
                              KillMessageShop.openMain(p, true, 1);
                              p.playSound(p.getLocation(), Sound.ORB_PICKUP, 0.5f, 0.5f);
-                             p.sendMessage("§aĐã mua " + item + "§a!");
+                             p.sendMessage("§dĐã mua " + item + "§d!");
                          } catch (IOException e) {
                              e.printStackTrace();
                          }
@@ -121,18 +121,18 @@ public class Events implements Listener {
                         KillMessageShop.openMain(p, true, 1);
                      }
                  } else if (event.getInventory().getName().equalsIgnoreCase("Cửa hàng Tiếng khóc địa ngục")) {
-                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang trước")) {
+                     if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dTrang trước")) {
                          int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Quay lại trang ", ""));
                          DeathCryShop.openMain(p, true, page);
-                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aTrang sau")) {
+                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dTrang sau")) {
                          int page = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() -1).replace("§7Sang trang ", ""));
                          DeathCryShop.openMain(p, true, page);
-                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aQuay lại")) {
+                     } else if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§dQuay lại")) {
                          ShopMenu.openMain(p, true);
                      } else {
                          if (event.getCurrentItem().getType() == Material.EMERALD) return;
                          Main.deathcrysdata = YamlConfiguration.loadConfiguration(Main.deathcrydatafile);
-                         String name = i.getItemMeta().getDisplayName().replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
+                         String name = i.getItemMeta().getDisplayName().replace("§a", "").replace("§b", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_").replace("&d", "").replace("&9", "").replace("&3", "").replace("§6", "").replace("§d", "").replace(" ", "_");
                          if (event.isRightClick()) {
                              PlayDeathCrySound.play(p, name);
                              event.setCancelled(true);
@@ -150,7 +150,7 @@ public class Events implements Listener {
                              } catch (IOException e) {
                                  e.printStackTrace();
                              }
-                             p.sendMessage("§aĐã chọn " + i.getItemMeta().getDisplayName() +"§a!");
+                             p.sendMessage("§dĐã chọn " + i.getItemMeta().getDisplayName() +"§d!");
                              p.playSound(p.getLocation(), Sound.ORB_PICKUP, 0.5f, 0.5f);
                              DeathCryShop.openMain(p, true, 1);
                          } else {
@@ -167,16 +167,16 @@ public class Events implements Listener {
                      Main.deathcrysdata = YamlConfiguration.loadConfiguration(Main.deathcrydatafile);
                      if (i.getItemMeta().getDisplayName().equalsIgnoreCase("§aXác nhận")) {
                          unlocked = Main.deathcrysdata.getStringList("Players." + p.getName() + ".Unlocked");
-                         String item = i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 2).replace("§7Mở khóa: ", "").replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
+                         String item = i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 2).replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_").replace("&d", "").replace("&9", "").replace("&3", "").replace("§7Mở khóa: ", "").replace("§a", "").replace("§b", "").replace("§6", "").replace("§d", "").replace(" ", "_");
                          unlocked.add(unlocked.size(), item);
-                         int price = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 1).replace("§7Giá:§e ", "").replace(".0", ""));
+                         int price = Integer.parseInt(i.getItemMeta().getLore().get(i.getItemMeta().getLore().size() - 1).replace("§7Giá:§b ", "").replace(".0", ""));
                          Main.deathcrysdata.set("Players." + p.getName() + ".Unlocked", unlocked);
                          try {
                              Coins.removeCoins(p, price);
                              Main.deathcrysdata.save(Main.deathcrydatafile);
                              DeathCryShop.openMain(p, true, 1);
                              p.playSound(p.getLocation(), Sound.ORB_PICKUP, 0.5f, 0.5f);
-                             p.sendMessage("§aĐã mua " + item + "§a!");
+                             p.sendMessage("§dĐã mua " + item + "§d!");
                          } catch (IOException e) {
                              e.printStackTrace();
                          }
